@@ -1,69 +1,223 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>刘平的主页</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        header {
-            background-color: #ff69b4;
-            padding: 20px;
-            color: white;
-        }
-        header h1 {
-            font-size: 2.5em;
-        }
-        .gallery {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-        .gallery a {
-            margin: 10px;
-            display: inline-block;
-            width: 200px;
-            height: 300px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
-        }
-        .gallery a img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .gallery a:hover img {
-            transform: scale(1.1);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人页面示例</title>
+  <style>
+    /* 重置默认样式，方便统一控制 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "微软雅黑", sans-serif;
+      color: #fff;
+      /* 背景图通过超链接形式设置，这里假设背景图链接为实际存在的地址 */
+      background: url('https://img2.wallspic.com/previews/2/7/0/2/7/172072/172072-netflix-ke_huan_xiao_shuo-tou_fa-shou-ren_men_zai_zi_ran_jie-x750.jpg') no-repeat center center / cover;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* 头像区域样式 */
+    .avatar-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      /* 头像图片超链接，替换为实际头像链接 */
+      background: url('https://c-ssl.duitang.com/uploads/blog/202207/09/20220709150824_97667.jpg') no-repeat center center / cover;
+      margin-right: 15px;
+    }
+
+    .user-info h2 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    .user-info p {
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* 导航栏样式 */
+    .nav {
+      margin-bottom: 20px;
+    }
+
+    .nav ul {
+      list-style: none;
+      display: flex;
+    }
+
+    .nav li {
+      margin-right: 15px;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* 能力、社交等板块通用样式 */
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .skill-list,
+    .social-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .skill-item,
+    .social-item {
+      margin-right: 15px;
+      margin-bottom: 10px;
+    }
+
+    .skill-item span,
+    .social-item a {
+      color: #fff;
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 5px 10px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .skill-item span:hover,
+    .social-item a:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* 音乐播放区域示例，这里简单模拟，实际可结合音频标签等完善 */
+    .music-section {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .music-cover {
+      width: 50px;
+      height: 50px;
+      /* 音乐封面图超链接，替换为实际封面链接 */
+      background: url('https://c-ssl.duitang.com/uploads/item/201807/12/20180712182150_d84Gk.jpeg') no-repeat center center / cover;
+      margin-right: 10px;
+    }
+
+    .music-info p {
+      font-size: 14px;
+    }
+
+    /* 底部信息样式 */
+    .footer {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      font-size: 12px;
+      opacity: 0.8;
+    }
+  </style>
 </head>
+
 <body>
+  <div class="container">
+    <!-- 头像及用户信息区域 -->
+    <div class="avatar-section">
+      <!-- 头像，用a标签包裹实现超链接，点击可跳转，这里href可自定义 -->
+      <a href="https://example.com/avatar-link" target="_blank">
+        <div class="avatar"></div>
+      </a>
+      <div class="user-info">
+        <h2>我是刘平</h2>
+        <p>meng-luo</p>
+        <p>「小小的也很可爱」</p>
+      </div>
+    </div>
 
-<header>
-    <h1>欢迎来到我的主页</h1>
-</header>
+    <!-- 导航栏区域 -->
+    <div class="nav">
+      <ul>
+        <li><a href="https://example.com/blog" target="_blank">博客</a></li>
+        <li><a href="https://example.com/disk" target="_blank">网盘</a></li>
+        <li><a href="https://example.com/nav" target="_blank">导航</a></li>
+        <li><a href="https://example.com/status" target="_blank">状态</a></li>
+      </ul>
+    </div>
 
-<div class="gallery">
-    <a href="https://www.manpingou.com/m/stage/manhuachahua/zhuangshituan/8284.html">
-        <img src="https://www.manpingou.com/m/stage/manhuachahua/zhuangshituan/8284.jpg" alt="动漫人物1">
-    </a>
-    <a href="https://www.manpingou.com/stage/particle/26413.html">
-        <img src="https://www.manpingou.com/stage/particle/26413.jpg" alt="动漫人物2">
-    </a>
-    <!-- 添加更多的动漫人物链接和图片 -->
-</div>
+    <!-- 能力展示区域 -->
+    <div class="section">
+      <h3>#我的能力</h3>
+      <div class="skill-list">
+        <div class="skill-item"><span>HTML/CSS</span></div>
+        <div class="skill-item"><span>Python</span></div>
+        <div class="skill-item"><span>社交</span></div>
+        <div class="skill-item"><span>GO</span></div>
+        <div class="skill-item"><span>搞事情</span></div>
+        <div class="skill-item"><span>耐心</span></div>
+        <div class="skill-item"><span>JavaScript</span></div>
+        <div class="skill-item"><span>信安</span></div>
+        <div class="skill-item"><span>世界</span></div>
+      </div>
+    </div>
 
+    <!-- 社交平台区域 -->
+    <div class="section">
+      <h3>#社交平台</h3>
+      <div class="social-list">
+        <div class="social-item"><a href="https://github.com/" target="_blank">GitHub</a></div>
+        <div class="social-item"><a href="https://www.bilibili.com/" target="_blank">Bilibili</a></div>
+        <div class="social-item"><a href="https://im.qq.com/" target="_blank">QQ</a></div>
+        <div class="social-item"><a href="mailto:your@email.com" target="_blank">Mail</a></div>
+      </div>
+    </div>
+
+    <!-- 音乐播放展示区域（简单模拟） -->
+    <div class="music-section">
+      <!-- 音乐封面超链接 -->
+      <a href="https://example.com/music" target="_blank">
+        <div class="music-cover"></div>
+      </a>
+      <div class="music-info">
+        <p>ひとりぼっち東京 結束バンド</p>
+        <p>作词：ヒグチアイ 作曲：ヒグチアイ</p>
+        <p>00:00 / 00:30</p>
+      </div>
+    </div>
+
+    <!-- 底部信息区域 -->
+    <div class="footer">
+      <p>梦璃雨落 @meng-luo</p>
+      <p>我的金子，只给千寻。</p>
+      <p>©2024 梦璃雨落 | Made by Serin | 浙ICP备2021040035号-2</p>
+    </div>
+  </div>
 </body>
+
 </html>
